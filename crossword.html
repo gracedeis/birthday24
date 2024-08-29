@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const correctPassword = 'BALLOON'; // Change this to your desired password
+
+      if (password === correctPassword) {
+        window.location.href = 'bible.html';
+      } else {
+        document.getElementById('message').textContent = 'Incorrect. Try again.';
+      }
+    }
+
+    function checkAuthentication() {
+      if (localStorage.getItem('authenticated') === 'true') {
+        window.location.href = 'bible.html';
+      }
+    }
+         function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const passwordToggle = document.getElementById('passwordToggle');
+
+      if (passwordToggle.checked) {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    }
+    window.onload = checkAuthentication;
+  </script>
+<style>
+    body {
+      background-color: #AFE1AF;
+      font-family: 'Roboto', sans-serif;
+      color: #333; /* Text color */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+  </style>
+<body>
+  <h1>Puzzle 1</h1>
+  <p>Complete the crossword and enter the word spelled out in the circled letters into the box below. Use all caps when entering it.
+  <!-- External Link -->
+  <p>Click here: <a href="https://crosshare.org/crosswords/6WhDb4v5pSPuG1Eoa41V/24th-birthday" target="_blank">Crossword</a> </p>
+  <h1>Enter Code Word</h1>
+  <input type="password" id="password" required>
+   <label>
+    <input type="checkbox" id="passwordToggle" onclick="togglePasswordVisibility()">
+    Show Word
+  </label>
+  <button onclick="checkPassword()">Submit</button>
+  <p id="message"></p>
+</form>
+</body>
+</html>

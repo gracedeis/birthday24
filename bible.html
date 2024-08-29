@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+      background-color: #AFE1AF;
+      font-family: 'Roboto', sans-serif;
+      color: #333; /* Text color */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+  </style>
+<script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const correctPassword = 'ANCIENT'; // Change this to your desired password
+
+      if (password === correctPassword) {
+        window.location.href = 'geography.html';
+      } else {
+        document.getElementById('message').textContent = 'Incorrect. Try again.';
+      }
+    }
+
+    function checkAuthentication() {
+      if (localStorage.getItem('authenticated') === 'true') {
+        window.location.href = 'geography.html';
+      }
+    }
+
+     function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const passwordToggle = document.getElementById('passwordToggle');
+
+      if (passwordToggle.checked) {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    }
+
+    window.onload = checkAuthentication;
+  </script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Puzzle 2</h1>
+  <p>Use all caps when entering the code word. Refer to the Extra Spiritual Version (ESV).
+  <p>Joshua 1:6:3:1-2</p>
+  <p>Matthew 16:18:11:3</p>
+  <p>John 15:13:16:3-4</p>
+  <p>2 Corinthians 12:9:9:9-10</p>
+  <h1>Enter Code Word</h1>
+  <input type="password" id="password" required>
+ <label>
+    <input type="checkbox" id="passwordToggle" onclick="togglePasswordVisibility()">
+    Show Word
+  </label>
+  <button onclick="checkPassword()">Submit</button>
+  <p id="message"></p>
+</body>
+</html>

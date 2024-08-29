@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+      background-color: #AFE1AF;
+      font-family: 'Roboto', sans-serif;
+      color: #333; /* Text color */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+  </style>
+<script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const correctPassword = 'SAUKREL'; // Change this to your desired password
+
+      if (password === correctPassword) {
+        window.location.href = 'link.html';
+      } else {
+        document.getElementById('message').textContent = 'Incorrect. Try again.';
+      }
+    }
+
+    function checkAuthentication() {
+      if (localStorage.getItem('authenticated') === 'true') {
+        window.location.href = 'link.html';
+      }
+    }
+
+     function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const passwordToggle = document.getElementById('passwordToggle');
+
+      if (passwordToggle.checked) {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    }
+
+    window.onload = checkAuthentication;
+  </script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Puzzle 3</h1>
+  <p>Hint: first letter. Once again, enter the code word in all caps.</p>
+  <img src="samoa.jpg" alt="Image1" style="max-width:40%;height:auto;">
+  <p><img src="armenia.jpg" alt="Image2" style="max-width:40%;height:auto;"></p>
+  <p><img src="ulaanbaatar.jpg" alt="Image3" style="max-width:40%;height:auto;"></p>
+  <p><img src="kuwait.jpeg" alt="Image4" style="max-width:40%;height:auto;"></p>
+  <p><img src="rwanda.jpeg" alt="Image5" style="max-width:40%;height:auto;"></p>
+  <p><img src="estonia.jpg" alt="Image6" style="max-width:40%;height:auto;"></p>
+  <p><img src="lilongwe.jpg" alt="Image7" style="max-width:40%;height:auto;"></p>
+<h1>Enter Code Word</h1>
+  <input type="password" id="password" required>
+ <label>
+    <input type="checkbox" id="passwordToggle" onclick="togglePasswordVisibility()">
+    Show Word
+  </label>
+  <button onclick="checkPassword()">Submit</button>
+  <p id="message"></p>
+</body>
+</html>
